@@ -50,7 +50,7 @@ import com.example.bot.spring.DatabaseEngine;
 @SpringBootTest(classes = { KitchenSinkTester.class, SQLDatabaseEngine.class })
 public class KitchenSinkTester {
 	@Autowired
-	private DatabaseEngine databaseEngine;
+	private SQLDatabaseEngine databaseEngine;
 	
 	@Test
 	public void testNotFound() throws Exception {
@@ -63,68 +63,80 @@ public class KitchenSinkTester {
 		assertThat(thrown);
 	}
 	
+//	@Test
+//	public void testFound1() throws Exception {
+//		boolean thrown = false;
+//		String result = null;
+//		try {
+//			result = this.databaseEngine.search("abc");
+//		} catch (Exception e) {
+//			thrown = true;
+//		}
+//		assertThat(!thrown);
+//		assertThat(result.equals("def"));
+//	}
+//	
+//	@Test
+//	public void testFound2() throws Exception {
+//		boolean thrown = false;
+//		String result = null;
+//		try {
+//			result = this.databaseEngine.search("Hi");
+//		} catch (Exception e) {
+//			thrown = true;
+//		}
+//		assertThat(!thrown);
+//		assertThat(result.equals("Hey, how things going?"));
+//	}
+//	
+//	@Test
+//	public void testFound3() throws Exception {
+//		boolean thrown = false;
+//		String result = null;
+//		try {
+//			result = this.databaseEngine.search("I am fine");
+//		} catch (Exception e) {
+//			thrown = true;
+//		}
+//		assertThat(!thrown);
+//		assertThat(result.equals("Great!"));
+//	}
+//	
+//	@Test
+//	public void testFound4() throws Exception {
+//		boolean thrown = false;
+//		String result = null;
+//		try {
+//			result = this.databaseEngine.search("Who is Prof Kim");
+//		} catch (Exception e) {
+//			thrown = true;
+//		}
+//		assertThat(!thrown);
+//		assertThat(result.equals("Well, this is your instructor."));
+//	}
+//	
+//	@Test
+//	public void testFound5() throws Exception {
+//		boolean thrown = false;
+//		String result = null;
+//		try {
+//			result = this.databaseEngine.search("How is the grade of this course?");
+//		} catch (Exception e) {
+//			thrown = true;
+//		}
+//		assertThat(!thrown);
+//		assertThat(result.equals("This is absolute good grade for good student. And I am sure you are!"));
+//	}
 	@Test
-	public void testFound1() throws Exception {
+	public void testDB() throws Exception {
 		boolean thrown = false;
 		String result = null;
 		try {
-			result = this.databaseEngine.search("abc");
+			result = this.databaseEngine.search("test");
 		} catch (Exception e) {
 			thrown = true;
 		}
 		assertThat(!thrown);
-		assertThat(result.equals("def"));
-	}
-	
-	@Test
-	public void testFound2() throws Exception {
-		boolean thrown = false;
-		String result = null;
-		try {
-			result = this.databaseEngine.search("Hi");
-		} catch (Exception e) {
-			thrown = true;
-		}
-		assertThat(!thrown);
-		assertThat(result.equals("Hey, how things going?"));
-	}
-	
-	@Test
-	public void testFound3() throws Exception {
-		boolean thrown = false;
-		String result = null;
-		try {
-			result = this.databaseEngine.search("I am fine");
-		} catch (Exception e) {
-			thrown = true;
-		}
-		assertThat(!thrown);
-		assertThat(result.equals("Great!"));
-	}
-	
-	@Test
-	public void testFound4() throws Exception {
-		boolean thrown = false;
-		String result = null;
-		try {
-			result = this.databaseEngine.search("Who is Prof Kim");
-		} catch (Exception e) {
-			thrown = true;
-		}
-		assertThat(!thrown);
-		assertThat(result.equals("Well, this is your instructor."));
-	}
-	
-	@Test
-	public void testFound5() throws Exception {
-		boolean thrown = false;
-		String result = null;
-		try {
-			result = this.databaseEngine.search("How is the grade of this course?");
-		} catch (Exception e) {
-			thrown = true;
-		}
-		assertThat(!thrown);
-		assertThat(result.equals("This is absolute good grade for good student. And I am sure you are!"));
+		assertThat(result.equals("program succeed"));
 	}
 }

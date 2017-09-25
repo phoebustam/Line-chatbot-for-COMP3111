@@ -14,13 +14,14 @@ import java.net.URI;
 public class SQLDatabaseEngine extends DatabaseEngine {
 	@Override
 	String search(String text) throws Exception {
+		String result = null;
 		try {
 			Connection connection = getConnection();
-			PreparedStatement stmt = connection.prepareStatement("Select id, keyword, response FROM lab where keyword like concat('%', ?, '%')");
-			stmt.setString(1, "vin");
-			ResultSet rs = stmt.excuteQuery();
+			PreparedStatement stmt = connection.prepareStatement("Select response FROM lab where keyword like concat('%', ?, '%')");
+			stmt.setString(1, text);
+			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
-				System.out.println("ID: " + rs.getInt(1) + "\tKeyword: " + rs.getString(2) + "\tResponse: " + rs.getString(3));
+				result = rs.getString(1);
 			}
 			rs.close();
 			stmt.close();
@@ -28,6 +29,9 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		if (result != null)
+			return result;
+		throw new Exception("NOT FOUND");
 	}
 	
 	
