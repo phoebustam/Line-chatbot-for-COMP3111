@@ -1,18 +1,33 @@
-package com.example.bot.spring;
+ package com.example.bot.spring;
 
 import lombok.extern.slf4j.Slf4j;
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.net.URISyntaxException;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URI;
 
 @Slf4j
 public class SQLDatabaseEngine extends DatabaseEngine {
 	@Override
 	String search(String text) throws Exception {
-		//Write your code here
-		return null;
+		try {
+			Connection connection = getConnection();
+			PreparedStatement stmt = connection.prepareStatement("Select id, keyword, response FROM lab where keyword like concat('%', ?, '%')");
+			stmt.setString(1, "vin");
+			ResultSet rs = stmt.excuteQuery();
+			while(rs.next()) {
+				System.out.println("ID: " + rs.getInt(1) + "\tKeyword: " + rs.getString(2) + "\tResponse: " + rs.getString(3));
+			}
+			rs.close();
+			stmt.close();
+			connection.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 	
 	
