@@ -74,6 +74,8 @@ the transcript be printed out.**
 
 ### Task 1: Use dashes ("-") instead of spaces (" ") to center-align the header
 
+*For this task, make changes to [`RefactoringLab.java`](RefactoringLab.java).*
+
 ```
 -----John Chan------
 ------21039408------
@@ -96,6 +98,8 @@ referred to as "code smells").
 
 ### Task 2: Use 2 spaces for indentations, instead of 4.
 
+*For this task, make changes to [`RefactoringLab.java`](RefactoringLab.java).*
+
 ```
 -----John Chan------
 ------21039408------
@@ -115,16 +119,24 @@ Semester GPA: 3.70
 *   What code smells did you encounter here?
 *   Propose and implement a fix to the problem. Why is it better?
 
-### Task 3: Reduce code duplication between the `transcriptHeightForWidth` and `generateTranscriptforWidth` methods
+### Task 3: Fix the `processClassResultField` method
 
-As one might expect, the `transcriptHeightForWidth` and
-`generateTranscriptForWidth` classes are structurally similar - after all,
-they're describing the same transcript structure.
+*For this task, make changes to
+[`RefactoringLabTask3.java`](RefactoringLabTask3.java). You do not need to make
+the changes from the previous two tasks in this file.*
 
-*   Propose and implement some changes that improve code reuse between the two
-    methods. What are some advantages and disadvantages to your approach?
-*   Bonus: are there any design patterns that *make sense* with respect to
-consolidating these two methods?
+A teammate notices that the structure of the `transcriptHeightForWidth` methods
+and `generateTranscriptForWidth` methods are quite similar. Specifically, the
+logic to indent the transcript body is more or less the same.
+
+He decides to use some refactoring tools to extract this logic out into a
+separate, `static` method, `processClassResultField`, which aims to update all
+of `currentLine`, `totalLine`, and `transcriptBuilder`. However, he finds that
+his method doesn't seem to work. Find out why this is, and suggest a fix.
+
+Tip: you might find the
+[parameter object](https://refactoring.guru/introduce-parameter-object)
+technique useful.
 
 ## Advice
 
