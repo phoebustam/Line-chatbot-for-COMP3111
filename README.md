@@ -25,7 +25,7 @@ You need to have some backgrounds on Java/Database/git in order to complete the 
 |     | 7    | No lab at week 7 | |
 | 5   | 8    | [Design Pattern](./lab6/lab_design_pattern.pdf) |
 | 6   | 9    | [Refactoring](./refactoring-lab/README.md) |
-
+| 7   | 11   | [javadoc](./lab7-JavaDoc) |
 
 # How does the Lab works
 
