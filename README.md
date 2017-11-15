@@ -27,6 +27,7 @@ You need to have some backgrounds on Java/Database/git in order to complete the 
 | 6   | 9    | [Refactoring](./refactoring-lab/README.md) | [Solution](./refactoring-lab/solution.md) |
 | 7   | 11   | [javadoc](./lab7-JavaDoc) | |
 
+
 # How does the Lab works
 
 2 points are allocated for each lab. You attendance at lab worth one point and completing the lab worth another point. All labs are full house and it is unlikely you can change your lab section. Please seek approval from the instructor if you need to swap your lab. You may complete the lab work at home and come to the lab for demo. 
