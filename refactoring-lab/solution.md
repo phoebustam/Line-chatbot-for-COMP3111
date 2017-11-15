@@ -117,7 +117,7 @@ The option I personally like involves combining the behavior of the two into
 a single helper method:
 
 ```java
-public int transcriptHeightForWidth(int width, boolean shouldPrint) {
+private int transcriptHeightForWidth(int width, boolean shouldPrint) {
     StringBuilder transcriptBuilder = new StringBuilder();
 
     // NOTE: addCenterAlignedLabel() takes a transcriptBuilder, width, and
