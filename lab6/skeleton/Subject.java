@@ -24,6 +24,16 @@ public class Subject {
 
 	public void notifyObservers() {
 		// TODO: notify every observers
+		List<Observer> observersLocal = null;
+		//synchronization is used to make sure any observer registered after message is received is not notified
+		if (!changed)
+			return;
+		observersLocal = new ArrayList<>(this.observers);
+		this.changed=false;
+		for (Observer obj : observersLocal) {
+			obj.update();
+		}
+
 	}
 
 	public void setMessage(String msg) {
